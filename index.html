@@ -34,7 +34,7 @@
     <meta name="description" content="Viết về người phụ nữ Việt Nam tôi yêu">
     <meta name="keywords" content="Viết về người phụ nữ Việt Nam tôi yêu">
     <meta name="keywords" content="qhoang,website,profile">
-    <meta property="og:title" content="Người phụ nữ Việt Nam ~ 11A34">
+    <meta property="og:title" content="Người phụ nữ Việt Nam ~">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="vi-VN">
     <meta property="og:url" content="https://Qhoang.com">
@@ -1381,9 +1381,869 @@ body {
         margin-bottom: 8px;
     }
 }
+
+/* ===== ENHANCED ANIMATIONS & EFFECTS ===== */
+
+/* Floating particles background */
+.floating-particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.particle {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    animation: float 6s ease-in-out infinite;
+}
+
+.particle:nth-child(1) { width: 4px; height: 4px; left: 10%; animation-delay: 0s; }
+.particle:nth-child(2) { width: 6px; height: 6px; left: 20%; animation-delay: 1s; }
+.particle:nth-child(3) { width: 3px; height: 3px; left: 30%; animation-delay: 2s; }
+.particle:nth-child(4) { width: 5px; height: 5px; left: 40%; animation-delay: 3s; }
+.particle:nth-child(5) { width: 4px; height: 4px; left: 50%; animation-delay: 4s; }
+.particle:nth-child(6) { width: 6px; height: 6px; left: 60%; animation-delay: 5s; }
+.particle:nth-child(7) { width: 3px; height: 3px; left: 70%; animation-delay: 1.5s; }
+.particle:nth-child(8) { width: 5px; height: 5px; left: 80%; animation-delay: 2.5s; }
+.particle:nth-child(9) { width: 4px; height: 4px; left: 90%; animation-delay: 3.5s; }
+
+@keyframes float {
+    0%, 100% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+}
+
+/* Enhanced hero section animations */
+.hero-section {
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.1) 50%, transparent 70%);
+    animation: shimmer 3s ease-in-out infinite;
+    z-index: 2;
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+/* Enhanced text animations */
+.hero-text-content .main-title {
+    animation: titleGlow 4s ease-in-out infinite alternate;
+    position: relative;
+}
+
+.hero-text-content .main-title::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
+    animation: textShimmer 2s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes titleGlow {
+    0% { text-shadow: 0 0 20px rgba(255,255,255,0.5); }
+    100% { text-shadow: 0 0 30px rgba(255,255,255,0.8), 0 0 40px rgba(255,255,255,0.3); }
+}
+
+@keyframes textShimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+/* Enhanced card hover effects */
+.content-section {
+    position: relative;
+    overflow: hidden;
+}
+
+.content-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s ease;
+    z-index: 1;
+}
+
+.content-section:hover::before {
+    left: 100%;
+}
+
+/* Enhanced image animations */
+.content-image, .hero-main-image, .gallery-image {
+    position: relative;
+    overflow: hidden;
+}
+
+.content-image::before, .hero-main-image::before, .gallery-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+    z-index: 1;
+}
+
+.content-image:hover::before, .hero-main-image:hover::before, .gallery-image:hover::before {
+    transform: translateX(100%);
+}
+
+/* Enhanced quality items */
+.quality-item {
+    position: relative;
+    overflow: hidden;
+}
+
+.quality-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+    transform: scale(0);
+    transition: transform 0.3s ease;
+    z-index: 1;
+}
+
+.quality-item:hover::before {
+    transform: scale(1);
+}
+
+.quality-icon {
+    animation: iconBounce 2s ease-in-out infinite;
+}
+
+@keyframes iconBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+/* Enhanced navigation items */
+.nav-item, .sticky-nav-item, .mobile-nav-item {
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-item::before, .sticky-nav-item::before, .mobile-nav-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.5s ease;
+}
+
+.nav-item:hover::before, .sticky-nav-item:hover::before, .mobile-nav-item:hover::before {
+    left: 100%;
+}
+
+/* Enhanced section headers */
+.section-header {
+    position: relative;
+    overflow: hidden;
+}
+
+.section-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+    animation: headerShimmer 3s ease-in-out infinite;
+}
+
+@keyframes headerShimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+/* Enhanced loading screen: keep base styles only; see ::before for shimmer */
+
+.loading-screen::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+    animation: loadingShimmer 2s ease-in-out infinite;
+}
+
+@keyframes loadingShimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+/* Enhanced welcome notification */
+.welcome-notification {
+    position: relative;
+    overflow: hidden;
+}
+
+.welcome-notification::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent, rgba(255,255,255,0.2), transparent);
+    animation: welcomeShimmer 2s ease-in-out infinite;
+}
+
+@keyframes welcomeShimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+/* Enhanced modal */
+.modal-content {
+    position: relative;
+    overflow: hidden;
+}
+
+.modal-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+    animation: modalShimmer 3s ease-in-out infinite;
+}
+
+@keyframes modalShimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+/* Enhanced footer */
+.footer {
+    position: relative;
+    overflow: hidden;
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent, rgba(255,255,255,0.05), transparent);
+    animation: footerShimmer 4s ease-in-out infinite;
+}
+
+@keyframes footerShimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+/* Enhanced scroll animations */
+@keyframes slideInFromLeft {
+    0% { transform: translateX(-100px); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideInFromRight {
+    0% { transform: translateX(100px); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideInFromBottom {
+    0% { transform: translateY(50px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes fadeInScale {
+    0% { transform: scale(0.8); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+/* Enhanced button animations */
+.nav-item, .sticky-nav-item, .mobile-nav-item {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-item:hover, .sticky-nav-item:hover, .mobile-nav-item:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+/* Enhanced image hover effects */
+.content-image, .hero-main-image, .gallery-image {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.content-image:hover, .hero-main-image:hover, .gallery-image:hover {
+    transform: scale(1.08) rotate(1deg);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+}
+
+/* Enhanced quality item animations */
+.quality-item {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.quality-item:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+
+/* Enhanced section animations */
+.content-section, .story-section, .quote-section {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.content-section:hover, .story-section:hover, .quote-section:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+}
+
+/* Enhanced logo animations */
+.logo-img, .sticky-logo-img {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.logo-img:hover, .sticky-logo-img:hover {
+    transform: scale(1.15) rotate(5deg);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+/* Enhanced activities list */
+.activities-list li {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.activities-list li::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(85, 239, 196, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.activities-list li:hover::before {
+    left: 100%;
+}
+
+.activities-list li:hover {
+    transform: translateX(15px) scale(1.02);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+/* Enhanced mobile menu */
+.mobile-menu-content {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.mobile-nav-item {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.mobile-nav-item:hover {
+    transform: translateX(15px) scale(1.05);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* Enhanced sticky header */
+.sticky-header {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.sticky-header.show {
+    animation: stickySlideDown 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes stickySlideDown {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(0); }
+}
+
+/* Enhanced video container */
+#loiketVideo {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#loiketVideo:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+}
+
+/* Ripple effect styles */
+.ripple {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(0);
+    animation: rippleEffect 0.6s linear;
+    pointer-events: none;
+}
+
+@keyframes rippleEffect {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+/* Pulse animation for important elements */
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+/* Enhanced entrance animations */
+.animate-in {
+    animation: slideInFromBottom 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Enhanced hover states with better transitions */
+.nav-item, .sticky-nav-item, .mobile-nav-item {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-item:hover, .sticky-nav-item:hover, .mobile-nav-item:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+/* Enhanced section hover effects */
+.content-section:hover, .story-section:hover, .quote-section:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+}
+
+/* Enhanced image hover with 3D effect */
+.content-image:hover, .hero-main-image:hover, .gallery-image:hover {
+    transform: scale(1.08) rotate(1deg) translateZ(10px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+}
+
+/* Enhanced quality item hover */
+.quality-item:hover {
+    transform: translateY(-10px) scale(1.05) rotate(1deg);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+
+/* Enhanced logo hover with rotation */
+.logo-img:hover, .sticky-logo-img:hover {
+    transform: scale(1.15) rotate(5deg) translateZ(5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+/* Enhanced activities list hover */
+.activities-list li:hover {
+    transform: translateX(15px) scale(1.02) rotate(0.5deg);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+/* Enhanced mobile menu animations */
+.mobile-menu-content {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.mobile-nav-item:hover {
+    transform: translateX(15px) scale(1.05) rotate(1deg);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* Enhanced sticky header with smooth slide */
+.sticky-header.show {
+    animation: stickySlideDown 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Enhanced video hover */
+#loiketVideo:hover {
+    transform: scale(1.05) rotate(0.5deg);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+}
+
+/* Enhanced loading screen with better transitions */
+.loading-screen {
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Enhanced welcome notification */
+.welcome-notification {
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Enhanced modal animations */
+.modal-content {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Enhanced footer animations */
+.footer {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Enhanced section headers */
+.section-header {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Enhanced gallery grid animations */
+.gallery-item {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px) scale(1.02);
+}
+
+/* Enhanced hero section animations */
+.hero-section {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hero-text-content {
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Enhanced button animations with better easing */
+button, .btn, .nav-item, .sticky-nav-item, .mobile-nav-item {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Enhanced image animations with 3D perspective */
+.content-image, .hero-main-image, .gallery-image {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+}
+
+/* Enhanced card animations */
+.content-section, .story-section, .quote-section {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+}
+
+/* Enhanced quality grid animations */
+.qualities-grid {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Enhanced activities list animations */
+.activities-list {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Enhanced mobile menu overlay */
+.mobile-menu-overlay {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Enhanced sticky header animations */
+.sticky-header {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Enhanced video container animations */
+#loiketVideo {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ===== ENHANCED IMAGE ANIMATIONS ===== */
+
+/* Floating animation for all images */
+.content-image, .hero-main-image, .gallery-image, .logo-img, .sticky-logo-img {
+    animation: gentleFloat 6s ease-in-out infinite;
+    animation-delay: calc(var(--i, 0) * 0.5s);
+}
+
+@keyframes gentleFloat {
+    0%, 100% { 
+        transform: translateY(0px) rotate(0deg); 
+    }
+    25% { 
+        transform: translateY(-3px) rotate(0.5deg); 
+    }
+    50% { 
+        transform: translateY(-5px) rotate(0deg); 
+    }
+    75% { 
+        transform: translateY(-2px) rotate(-0.5deg); 
+    }
+}
+
+/* Breathing animation for hero image */
+.hero-main-image {
+    animation: gentleFloat 6s ease-in-out infinite, gentleBreath 4s ease-in-out infinite;
+    animation-delay: 0s, 1s;
+}
+
+@keyframes gentleBreath {
+    0%, 100% { 
+        transform: scale(1); 
+    }
+    50% { 
+        transform: scale(1.02); 
+    }
+}
+
+/* Subtle rotation for gallery images */
+.gallery-image {
+    animation: gentleFloat 6s ease-in-out infinite, gentleRotate 8s ease-in-out infinite;
+    animation-delay: calc(var(--i, 0) * 0.3s), calc(var(--i, 0) * 0.2s);
+}
+
+@keyframes gentleRotate {
+    0%, 100% { 
+        transform: rotate(0deg); 
+    }
+    25% { 
+        transform: rotate(0.5deg); 
+    }
+    50% { 
+        transform: rotate(0deg); 
+    }
+    75% { 
+        transform: rotate(-0.5deg); 
+    }
+}
+
+/* Gentle sway for content images */
+.content-image {
+    animation: gentleFloat 6s ease-in-out infinite, gentleSway 5s ease-in-out infinite;
+    animation-delay: calc(var(--i, 0) * 0.4s), calc(var(--i, 0) * 0.3s);
+}
+
+@keyframes gentleSway {
+    0%, 100% { 
+        transform: translateX(0px); 
+    }
+    50% { 
+        transform: translateX(2px); 
+    }
+}
+
+/* Logo gentle bounce */
+.logo-img, .sticky-logo-img {
+    animation: gentleFloat 6s ease-in-out infinite, gentleBounce 3s ease-in-out infinite;
+    animation-delay: 0s, 0.5s;
+}
+
+@keyframes gentleBounce {
+    0%, 100% { 
+        transform: translateY(0px); 
+    }
+    50% { 
+        transform: translateY(-2px); 
+    }
+}
+
+/* Enhanced hover effects for images */
+.content-image:hover, .hero-main-image:hover, .gallery-image:hover {
+    animation-play-state: paused;
+    transform: scale(1.08) rotate(1deg) translateZ(10px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Gentle pulse for important images */
+.hero-main-image {
+    animation: gentleFloat 6s ease-in-out infinite, gentleBreath 4s ease-in-out infinite, gentlePulse 3s ease-in-out infinite;
+    animation-delay: 0s, 1s, 2s;
+}
+
+@keyframes gentlePulse {
+    0%, 100% { 
+        box-shadow: 0 8px 25px rgba(0,0,0,0.15); 
+    }
+    50% { 
+        box-shadow: 0 12px 35px rgba(0,0,0,0.25); 
+    }
+}
+
+/* Subtle shimmer effect for images */
+.content-image::after, .hero-main-image::after, .gallery-image::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+    animation: imageShimmer 3s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 1;
+}
+
+@keyframes imageShimmer {
+    0% { left: -100%; }
+    50% { left: 100%; }
+    100% { left: 100%; }
+}
+
+/* Enhanced image containers */
+.content-image, .hero-main-image, .gallery-image {
+    position: relative;
+    overflow: hidden;
+    --i: 0;
+}
+
+/* Staggered animation delays for multiple images */
+.content-image:nth-child(1) { --i: 0; }
+.content-image:nth-child(2) { --i: 1; }
+.content-image:nth-child(3) { --i: 2; }
+.content-image:nth-child(4) { --i: 3; }
+
+.gallery-image:nth-child(1) { --i: 0; }
+.gallery-image:nth-child(2) { --i: 1; }
+.gallery-image:nth-child(3) { --i: 2; }
+.gallery-image:nth-child(4) { --i: 3; }
+
+/* Gentle wave animation for image groups */
+.qualities-grid .quality-item img,
+.section-image img {
+    animation: gentleFloat 6s ease-in-out infinite, gentleWave 4s ease-in-out infinite;
+    animation-delay: calc(var(--i, 0) * 0.2s), calc(var(--i, 0) * 0.1s);
+}
+
+@keyframes gentleWave {
+    0%, 100% { 
+        transform: translateY(0px) rotate(0deg); 
+    }
+    25% { 
+        transform: translateY(-2px) rotate(0.3deg); 
+    }
+    50% { 
+        transform: translateY(-1px) rotate(0deg); 
+    }
+    75% { 
+        transform: translateY(-3px) rotate(-0.3deg); 
+    }
+}
+
+/* Enhanced loading animation for images */
+.content-image, .hero-main-image, .gallery-image {
+    opacity: 0;
+    animation: imageFadeIn 1s ease-out forwards, gentleFloat 6s ease-in-out infinite 1s;
+}
+
+@keyframes imageFadeIn {
+    0% { 
+        opacity: 0; 
+        transform: translateY(20px) scale(0.9); 
+    }
+    100% { 
+        opacity: 1; 
+        transform: translateY(0) scale(1); 
+    }
+}
+
+/* Gentle parallax for hero image */
+.hero-main-image {
+    animation: gentleFloat 6s ease-in-out infinite, gentleBreath 4s ease-in-out infinite, gentleParallax 8s ease-in-out infinite;
+    animation-delay: 0s, 1s, 2s;
+}
+
+@keyframes gentleParallax {
+    0%, 100% { 
+        transform: translateY(0px) translateX(0px); 
+    }
+    25% { 
+        transform: translateY(-2px) translateX(1px); 
+    }
+    50% { 
+        transform: translateY(-4px) translateX(0px); 
+    }
+    75% { 
+        transform: translateY(-1px) translateX(-1px); 
+    }
+}
+
+/* Enhanced mobile responsiveness for image animations */
+@media (max-width: 768px) {
+    .content-image, .hero-main-image, .gallery-image {
+        animation-duration: 8s, 6s;
+        animation-timing-function: ease-in-out;
+    }
+    
+    .hero-main-image {
+        animation: gentleFloat 8s ease-in-out infinite, gentleBreath 5s ease-in-out infinite;
+    }
+}
+
+@media (max-width: 480px) {
+    .content-image, .hero-main-image, .gallery-image {
+        animation-duration: 10s, 8s;
+    }
+    
+    /* Reduce animation intensity on small screens */
+    @keyframes gentleFloat {
+        0%, 100% { 
+            transform: translateY(0px) rotate(0deg); 
+        }
+        50% { 
+            transform: translateY(-2px) rotate(0.3deg); 
+        }
+    }
+}
     </style>
 </head>
 <body>
+    <!-- Floating Particles Background -->
+    <div class="floating-particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+
     <div class="container">
         <!-- Loading Screen -->
         <div id="loadingScreen" class="loading-screen">
@@ -1487,7 +2347,7 @@ body {
                 <div class="hero-text-content">
                     <h1 class="main-title">Viết về người phụ nữ Việt Nam tôi yêu</h1>
                     <p class="subtitle" style="text-align: center;">Tôn vinh vẻ đẹp, lòng nhân hậu và bản lĩnh của người phụ nữ Việt Nam</p>
-                    <p class="subtitle" style="text-align: center;">Thực hiện bởi tập thể lớp 11A34 – Trung tâm GDNN-GDTX Quận 12</p>
+                    <p class="subtitle" style="text-align: center;">Thực hiện bởi Q.Hoàng lớp 11A34 – Trung tâm GDNN-GDTX Quận 12</p>
                 </div>
                 <div class="hero-image-section">
                     <img src="https://files.catbox.moe/n9km0y.png" alt="Hero Image" class="hero-main-image">
@@ -1635,12 +2495,12 @@ body {
 
         <div id="tri-an" class="content-section">
             <div class="section-header">
-                <h2 class="section-title">Tri ân và cảm xúc từ 11A34</h2>
+                <h2 class="section-title">Tri ân và cảm xúc từ Q.Hoàng</h2>
                 <div class="section-divider"></div>
             </div>
             <div class="section-body">
                 <div class="section-text">
-                    <p>Chúng em gửi lời cảm ơn sâu sắc đến mẹ, cô giáo và các bạn nữ – những người đã tô đẹp cuộc sống. Ngày 20/10 không chỉ là ngày tri ân, mà còn là dịp để mỗi người nhắc nhớ giá trị yêu thương và tôn trọng.</p>
+                    <p>Em gửi lời cảm ơn sâu sắc đến mẹ, cô giáo và các bạn nữ – những người đã tô đẹp cuộc sống. Ngày 20/10 không chỉ là ngày tri ân, mà còn là dịp để mỗi người nhắc nhớ giá trị yêu thương và tôn trọng.</p>
                 </div>
                 <div class="section-image">
                     <img src="https://files.catbox.moe/0p28cq.png" alt="Tri ân 20/10" class="content-image">
@@ -1657,7 +2517,7 @@ body {
                 <div class="section-text">
                     <p><em>"Người phụ nữ Việt Nam – dịu dàng như hoa, mạnh mẽ như thép."</em></p>
                     <br>
-                    <p>Tập thể lớp 11A34 tự hào được gửi đến các cô, mẹ, chị, bạn nữ lời chúc tốt đẹp nhất – chúc mọi người luôn mạnh khỏe, hạnh phúc và rạng rỡ như những cánh hoa mùa xuân.</p>
+                    <p>Q.Hoàng lớp 11A34 tự hào được gửi đến các cô, mẹ, chị, bạn nữ lời chúc tốt đẹp nhất – chúc mọi người luôn mạnh khỏe, hạnh phúc và rạng rỡ như những cánh hoa mùa xuân.</p>
                 </div>
                 <div class="section-image">
                     <img src="https://files.catbox.moe/157wj3.jpg" alt="Lời kết" class="content-image">
@@ -1671,7 +2531,7 @@ body {
         </div>
 
         <div class="footer">
-            <p>© 2025 Lớp 11A34 – Trung tâm GDNN-GDTX Quận 12</p>
+            <p>© 2025 Q.Hoàng lớp 11A34 – Trung tâm GDNN-GDTX Quận 12</p>
             <p>Thiết kế & thực hiện bởi <span class="author-name" onclick="window.open('https://www.facebook.com/hoangnguyenne', '_blank')">Quang Hoàng</span></p>
         </div>
     </div>
@@ -1692,7 +2552,7 @@ body {
     </div>
 
     <script>
-        // Loading Screen
+        // Enhanced Loading Screen with smooth transitions
         window.addEventListener('load', function() {
             // Preload hero background image
             const heroImage = new Image();
@@ -1712,17 +2572,40 @@ body {
             };
             heroImage.src = 'https://files.catbox.moe/n9km0y.png';
             
+            // Enhanced loading sequence
             setTimeout(function() {
                 const loadingScreen = document.getElementById('loadingScreen');
+                loadingScreen.style.transition = 'opacity 0.8s ease, visibility 0.8s ease';
                 loadingScreen.style.opacity = '0';
                 loadingScreen.style.visibility = 'hidden';
                 
-                // Hiển thị welcome notification sau khi loading xong
+                // Add entrance animation for main content
+                document.querySelectorAll('.content-section, .story-section, .quote-section').forEach((el, index) => {
+                    setTimeout(() => {
+                        el.style.opacity = '0';
+                        el.style.transform = 'translateY(30px)';
+                        el.style.transition = 'opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
+                    }, index * 50);
+                });
+                
+                // Hiển thị welcome notification sau khi loading xong với hiệu ứng mượt
                 setTimeout(function() {
                     const welcomeNotification = document.getElementById('welcomeNotification');
-                    welcomeNotification.style.animation = 'welcomeShow 0.6s ease forwards, welcomePulse 2s ease-in-out 0.6s infinite, welcomeHide 0.5s ease 9.5s forwards';
-                }, 500);
-            }, 2000); // Loading 2 giây
+                    welcomeNotification.style.animation = 'welcomeShow 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards, welcomePulse 2s ease-in-out 0.8s infinite, welcomeHide 0.6s ease 9.2s forwards';
+                    
+                    // Add subtle entrance animation for hero content
+                    const heroText = document.querySelector('.hero-text-content');
+                    if (heroText) {
+                        heroText.style.opacity = '0';
+                        heroText.style.transform = 'translateY(20px)';
+                        heroText.style.transition = 'opacity 1s cubic-bezier(0.4, 0, 0.2, 1), transform 1s cubic-bezier(0.4, 0, 0.2, 1)';
+                        setTimeout(() => {
+                            heroText.style.opacity = '1';
+                            heroText.style.transform = 'translateY(0)';
+                        }, 200);
+                    }
+                }, 800);
+            }, 2500); // Loading 2.5 giây để có thời gian hiển thị animation
 
             // Khởi tạo video Lời kết: autoplay (muted) theo policy; bật tiếng sau tương tác
             const loiketVideo = document.getElementById('loiketVideo');
@@ -1787,26 +2670,57 @@ body {
             });
         });
 
-        // Hiệu ứng fade in khi scroll
+        // Enhanced scroll animations with staggered effects
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
         };
 
         const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
+            entries.forEach((entry, index) => {
                 if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
+                    // Staggered animation delay for multiple elements
+                    setTimeout(() => {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                        entry.target.classList.add('animate-in');
+                    }, index * 100); // 100ms delay between each element
                 }
             });
         }, observerOptions);
 
-        // Áp dụng hiệu ứng cho các phần tử
-        document.querySelectorAll('.content-section, .story-section, .quote-section').forEach(el => {
+        // Enhanced animations for different element types
+        document.querySelectorAll('.content-section, .story-section, .quote-section').forEach((el, index) => {
             el.style.opacity = '0';
-            el.style.transform = 'translateY(20px)';
-            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
+            observer.observe(el);
+        });
+
+        // Enhanced animations for quality items
+        document.querySelectorAll('.quality-item').forEach((el, index) => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px) scale(0.9)';
+            el.style.transition = 'opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+            el.style.transitionDelay = `${index * 0.1}s`;
+            observer.observe(el);
+        });
+
+        // Enhanced animations for gallery images
+        document.querySelectorAll('.gallery-image').forEach((el, index) => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px) rotate(2deg)';
+            el.style.transition = 'opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), transform 0.7s cubic-bezier(0.4, 0, 0.2, 1)';
+            el.style.transitionDelay = `${index * 0.15}s`;
+            observer.observe(el);
+        });
+
+        // Enhanced animations for activities list
+        document.querySelectorAll('.activities-list li').forEach((el, index) => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateX(-30px)';
+            el.style.transition = 'opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1), transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
+            el.style.transitionDelay = `${index * 0.1}s`;
             observer.observe(el);
         });
 
@@ -1874,7 +2788,284 @@ body {
                 }
             }
         });
+
+        // Enhanced interactive effects
+        // Add ripple effect to buttons and interactive elements
+        function createRipple(event) {
+            const button = event.currentTarget;
+            const ripple = document.createElement('span');
+            const rect = button.getBoundingClientRect();
+            const size = Math.max(rect.width, rect.height);
+            const x = event.clientX - rect.left - size / 2;
+            const y = event.clientY - rect.top - size / 2;
+            
+            ripple.style.width = ripple.style.height = size + 'px';
+            ripple.style.left = x + 'px';
+            ripple.style.top = y + 'px';
+            ripple.classList.add('ripple');
+            
+            button.appendChild(ripple);
+            
+            setTimeout(() => {
+                ripple.remove();
+            }, 600);
+        }
+
+        // Add ripple effect to navigation items
+        document.querySelectorAll('.nav-item, .sticky-nav-item, .mobile-nav-item').forEach(item => {
+            item.addEventListener('click', createRipple);
+        });
+
+        // Enhanced parallax effect for hero section
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const heroSection = document.querySelector('.hero-section');
+            const heroContent = document.querySelector('.hero-text-content');
+            
+            if (heroSection && heroContent) {
+                const rate = scrolled * -0.5;
+                heroContent.style.transform = `translateY(${rate}px)`;
+            }
+        });
+
+        // Enhanced mouse tracking for hero section
+        document.addEventListener('mousemove', function(e) {
+            const heroSection = document.querySelector('.hero-section');
+            if (heroSection) {
+                const rect = heroSection.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                const moveX = (x - centerX) / 20;
+                const moveY = (y - centerY) / 20;
+                
+                const heroImage = document.querySelector('.hero-main-image');
+                if (heroImage) {
+                    heroImage.style.transform = `translate(${moveX}px, ${moveY}px) scale(1.05)`;
+                }
+            }
+        });
+
+        // Add entrance animation for quality items with stagger
+        const qualityObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0) scale(1)';
+                        entry.target.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+                    }, index * 150);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.quality-item').forEach(item => {
+            item.style.opacity = '0';
+            item.style.transform = 'translateY(30px) scale(0.8)';
+            qualityObserver.observe(item);
+        });
+
+        // Enhanced gallery hover effects
+        document.querySelectorAll('.gallery-image').forEach(image => {
+            image.addEventListener('mouseenter', function() {
+                this.style.transform = 'scale(1.1) rotate(2deg)';
+                this.style.transition = 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
+            });
+            
+            image.addEventListener('mouseleave', function() {
+                this.style.transform = 'scale(1) rotate(0deg)';
+            });
+        });
+
+        // Add subtle pulse animation to important elements
+        function addPulseAnimation() {
+            const importantElements = document.querySelectorAll('.section-title, .quality-icon');
+            importantElements.forEach(el => {
+                el.style.animation = 'pulse 2s ease-in-out infinite';
+            });
+        }
+
+        // Call pulse animation after page load
+        setTimeout(addPulseAnimation, 3000);
+
+        // Enhanced scroll-triggered animations
+        const scrollObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
+                    
+                    // Add special effects for different sections
+                    if (entry.target.classList.contains('content-section')) {
+                        entry.target.style.animation = 'slideInFromBottom 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
+                    }
+                    
+                    if (entry.target.classList.contains('quality-item')) {
+                        entry.target.style.animation = 'fadeInScale 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+                    }
+                }
+            });
+        }, { threshold: 0.2 });
+
+        // Observe all animated elements
+        document.querySelectorAll('.content-section, .story-section, .quote-section, .quality-item').forEach(el => {
+            scrollObserver.observe(el);
+        });
+
+        // ===== ENHANCED IMAGE ANIMATIONS =====
+        
+        // Add staggered animation delays for images
+        document.querySelectorAll('.content-image, .gallery-image').forEach((img, index) => {
+            img.style.setProperty('--i', index);
+        });
+
+        // Enhanced image hover effects with pause animation
+        document.querySelectorAll('.content-image, .hero-main-image, .gallery-image').forEach(img => {
+            img.addEventListener('mouseenter', function() {
+                this.style.animationPlayState = 'paused';
+                this.style.transform = 'scale(1.08) rotate(1deg) translateZ(10px)';
+                this.style.boxShadow = '0 15px 35px rgba(0,0,0,0.2)';
+            });
+            
+            img.addEventListener('mouseleave', function() {
+                this.style.animationPlayState = 'running';
+                this.style.transform = '';
+                this.style.boxShadow = '';
+            });
+        });
+
+        // Gentle mouse tracking for hero image
+        document.addEventListener('mousemove', function(e) {
+            const heroImage = document.querySelector('.hero-main-image');
+            if (heroImage) {
+                const rect = heroImage.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                const moveX = x * 0.05;
+                const moveY = y * 0.05;
+                
+                heroImage.style.transform = `translate(${moveX}px, ${moveY}px) scale(1.02)`;
+            }
+        });
+
+        // Enhanced image loading with fade-in effect
+        const imageObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.style.opacity = '0';
+                    img.style.transform = 'translateY(20px) scale(0.9)';
+                    img.style.transition = 'opacity 1s ease-out, transform 1s ease-out';
+                    
+                    setTimeout(() => {
+                        img.style.opacity = '1';
+                        img.style.transform = 'translateY(0) scale(1)';
+                    }, 200);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        // Observe all images for loading animation
+        document.querySelectorAll('.content-image, .hero-main-image, .gallery-image').forEach(img => {
+            imageObserver.observe(img);
+        });
+
+        // Gentle parallax effect for images on scroll
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const images = document.querySelectorAll('.content-image, .gallery-image');
+            
+            images.forEach((img, index) => {
+                const rect = img.getBoundingClientRect();
+                const speed = 0.1 + (index * 0.05);
+                const yPos = -(scrolled * speed);
+                img.style.transform = `translateY(${yPos}px)`;
+            });
+        });
+
+        // Enhanced gallery image interactions
+        document.querySelectorAll('.gallery-image').forEach((img, index) => {
+            img.addEventListener('mouseenter', function() {
+                this.style.animationPlayState = 'paused';
+                this.style.transform = 'scale(1.1) rotate(2deg) translateZ(5px)';
+                this.style.boxShadow = '0 10px 30px rgba(0,0,0,0.2)';
+                this.style.zIndex = '10';
+            });
+            
+            img.addEventListener('mouseleave', function() {
+                this.style.animationPlayState = 'running';
+                this.style.transform = '';
+                this.style.boxShadow = '';
+                this.style.zIndex = '';
+            });
+        });
+
+        // Gentle breathing effect for hero image
+        function addBreathingEffect() {
+            const heroImage = document.querySelector('.hero-main-image');
+            if (heroImage) {
+                setInterval(() => {
+                    heroImage.style.transform = 'scale(1.02)';
+                    setTimeout(() => {
+                        heroImage.style.transform = 'scale(1)';
+                    }, 1000);
+                }, 3000);
+            }
+        }
+
+        // Start breathing effect after page load
+        setTimeout(addBreathingEffect, 2000);
+
+        // Enhanced image shimmer effect on hover
+        document.querySelectorAll('.content-image, .hero-main-image, .gallery-image').forEach(img => {
+            img.addEventListener('mouseenter', function() {
+                const shimmer = document.createElement('div');
+                shimmer.style.position = 'absolute';
+                shimmer.style.top = '0';
+                shimmer.style.left = '-100%';
+                shimmer.style.width = '100%';
+                shimmer.style.height = '100%';
+                shimmer.style.background = 'linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent)';
+                shimmer.style.animation = 'imageShimmer 0.6s ease-out';
+                shimmer.style.pointerEvents = 'none';
+                shimmer.style.zIndex = '2';
+                
+                this.appendChild(shimmer);
+                
+                setTimeout(() => {
+                    shimmer.remove();
+                }, 600);
+            });
+        });
+
+        // Gentle rotation for logo images
+        document.querySelectorAll('.logo-img, .sticky-logo-img').forEach(logo => {
+            logo.addEventListener('mouseenter', function() {
+                this.style.animationPlayState = 'paused';
+                this.style.transform = 'scale(1.15) rotate(5deg) translateZ(5px)';
+            });
+            
+            logo.addEventListener('mouseleave', function() {
+                this.style.animationPlayState = 'running';
+                this.style.transform = '';
+            });
+        });
+
+        // Enhanced image loading with progressive enhancement
+        function enhanceImageAnimations() {
+            document.querySelectorAll('.content-image, .hero-main-image, .gallery-image').forEach((img, index) => {
+                // Add random delay for more natural animation
+                const randomDelay = Math.random() * 2;
+                img.style.animationDelay = `${randomDelay}s`;
+                
+                // Add subtle random rotation
+                const randomRotation = (Math.random() - 0.5) * 2;
+                img.style.setProperty('--random-rotation', `${randomRotation}deg`);
+            });
+        }
+
+        // Apply enhanced animations after page load
+        setTimeout(enhanceImageAnimations, 1000);
     </script>
 </body>
 </html>
-
